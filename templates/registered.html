@@ -1,14 +1,32 @@
 {% extends "layout.html" %}
-  
+
 {% block body %}
 
-    {% for post in posts %}
-        <div class='post'>
-            <p>{{ post['userID'] }}</p>
-            <h2>{{ post['username'] }}</h2>
-            <p>{{ post['password'] }}</p>
-        </div>
-    {% endfor %}
+<table class="table table-hover table-dark post">
+    <thead>
+        <tr>
+            {% for name in names %}
+            <th scope="col">{{ name }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for post in posts %}
+        <tr onclick="get_userID(this)">
+            <td>{{ post['userID'] }}</td>
+            <td>{{ post['username'] }}</td>
+            <td>@{{ post['password'] }}</td>
+        </tr>
+        {% endfor %}
+        
+    </tbody>
+    
+</table>
 
+<p>Row index: <span id="the_userID"></span></p>
+<form action="/delete" method="post">
+    <input type="hidden" id="the_userID_field" name="the_userID_field" value="">
+    <button type="submit" class="btn btn-danger"">Delete</button>
+</form>
 
 {% endblock %}
