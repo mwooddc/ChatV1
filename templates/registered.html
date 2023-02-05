@@ -33,7 +33,7 @@
 <!-- Button trigger modal -->
 <!-- <div class="container"> -->
     <!-- Trigger the modal with a button -->
-    <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Delete</button>
+    <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal" onclick="getvalue()">Delete</button>
   
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
@@ -46,19 +46,21 @@
             <h4 class="modal-title">Delete Record(s)</h4>
           </div>
           <div class="modal-body">
-            <p>Are you sure that you want to delete <span id="the_userID"></span></p>
+            <p id="userID_in_modal"></p>
+
           </div>
           <div class="modal-footer">
-              <form action="/delete" method="post">
+              <form action="/delete" class="btn" method="post">
                   <input type="hidden" id="the_userID_field" name="the_userID_field" value="">
-                  <button type="submit" class="btn btn-danger"">Delete</button>
+                  <button type="submit" class="btn btn-danger">Delete</button>
               </form>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
           </div>
         </div>
         
       </div>
     </div>
+    
     
   <!-- </div> -->
 
