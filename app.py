@@ -15,6 +15,11 @@ def get_db_connection():
 
 # db = sqlite3.connect('SQL/chat.db')
 
+@app.route('/tester')
+def tester():
+    return render_template('tester.html')
+
+
 @app.route('/registered', methods=["GET","POST"])
 def registered():
     if request.method == "GET":
@@ -50,7 +55,7 @@ def index():
 def delete():
     conn, names = get_db_connection()
     if request.method == "POST":
-        userID = request.form.get("the_userID_fi
+        userID = request.form.get("the_userID_field")
         conn.execute("DELETE FROM users WHERE userID = ?",(userID,))
         ############################ comma REQUIRED here         ^
         conn.commit()
